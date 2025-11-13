@@ -1,0 +1,48 @@
+
+
+.page{ padding:20px; 
+    display:flex; flex-direction:column; gap:30px; align-items:center; font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+    color:#0b1220 }
+
+.hero{ width:100%; max-width:1200px; background:linear-gradient(180deg,#08101a,#0b1722); padding:18px; border-radius:12px; color:white; box-shadow:0 18px 48px rgba(6,8,12,0.36) }
+.heroInner{ display:flex; gap:18px; align-items:center; justify-content:space-between }
+.heroText{ max-width:640px }
+.hTitle{ margin:0; font-size:22px; font-weight:800 }
+.hLead{ margin:6px 0 0 0; color:rgba(255,255,255,0.84) }
+.heroPreview{ width:220px; height:120px; border-radius:8px; overflow:hidden; position:relative; box-shadow:0 10px 28px rgba(0,0,0,0.4) }
+.heroImageWrap{ position:relative; width:100%; height:100% }
+.heroImage{ object-fit:cover; border-radius:8px }
+
+.grid{ width:100%; max-width:1200px; display:grid; grid-template-columns: repeat(3, 1fr); gap:18px }
+@media(max-width:980px){ .grid{ grid-template-columns: repeat(2, 1fr) } .heroInner{ flex-direction:column; align-items:flex-start } .heroPreview{ width:100%; height:160px } }
+@media(max-width:600px){ .grid{ grid-template-columns: 1fr } }
+
+.card{ display:flex; flex-direction:column; background:linear-gradient(180deg,#fbfbfd,#ffffff); border-radius:12px; overflow:hidden; box-shadow:0 12px 30px rgba(12,18,28,0.06); border:1px solid rgba(12,18,28,0.04) }
+.media{ position:relative; height:180px; background:#e9eef6 }
+.carousel{ position:relative; width:100%; height:100% }
+.slide{ position:absolute; inset:0; opacity:0; transform:scale(1.02); transition:opacity 420ms ease, transform 420ms ease }
+.slide.active{ opacity:1; transform:scale(1) }
+.image{ object-fit:cover }
+
+.overlay{ position:absolute; inset:8px; pointer-events:none; display:flex; align-items:flex-start; justify-content:space-between }
+.playBadge{ pointer-events:none; background:rgba(255,255,255,0.94); color:#071021; border-radius:10px; padding:8px; display:inline-grid; place-items:center; box-shadow:0 8px 18px rgba(0,0,0,0.08); margin-left:8px }
+.ribbons{ display:flex; gap:8px; pointer-events:none }
+.newBadge{ background:linear-gradient(90deg,#ff6b6b,#ffb86b); color:white; padding:6px 8px; border-radius:8px; font-weight:700; font-size:12px }
+.scoreBadge{ background:rgba(0,0,0,0.6); color:#ffd966; padding:6px 8px; border-radius:8px; font-weight:800; font-size:12px }
+
+.controls{ pointer-events:auto; position:absolute; right:8px; bottom:8px; display:flex; gap:8px }
+.ctrlBtn{ background:rgba(255,255,255,0.92); border:none; padding:6px 8px; border-radius:8px; cursor:pointer; font-weight:800 }
+
+.body{ padding:12px; display:flex; flex-direction:column; gap:8px }
+.title{ margin:0; font-size:16px }
+.desc{ margin:0; color:#515f72; font-size:14px }
+.metaRow{ display:flex; gap:8px; align-items:center }
+.playLink{ background:linear-gradient(90deg,#2bd6a6,#2b88ff); color:white; padding:8px 12px; border-radius:8px; text-decoration:none; font-weight:800 }
+.detailsLink{ color:#2b6cff; text-decoration:none; font-weight:700 }
+
+.footer{ width:100%; max-width:1200px; color:#475569 }
+
+/* small micro interactions */
+.card:hover{ transform:translateY(-6px); transition:transform 260ms ease }
+.ctrlBtn:hover{ transform:translateY(-2px) }
+

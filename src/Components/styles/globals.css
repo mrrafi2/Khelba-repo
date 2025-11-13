@@ -1,0 +1,120 @@
+body{
+    background: #000;
+}
+* {
+  -webkit-tap-highlight-color: transparent; 
+  -webkit-touch-callout: none;              
+}
+
+:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+:focus-visible {
+  outline: none; 
+  box-shadow: 0 0 0 4px rgba(255,217,102,0.18), 0 6px 18px rgba(12,16,24,0.6);
+  border-radius: 8px;
+}
+
+a, button, input, textarea, select {
+  -webkit-tap-highlight-color: transparent;
+  -moz-outline-style: none;
+  -webkit-appearance: none;
+}
+
+.no-focus-outline:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+
+:root {
+  --scrollbar-width: 12px;            
+  --track-bg: rgba(6, 8, 20, 0.75);  
+  --thumb-glow: rgba(120, 80, 255, 0.9);
+  --thumb-accent-1: #7f5cff;          /* gradient start */
+  --thumb-accent-2: #00ffd5;          /* gradient end */
+  --thumb-border: rgba(0,0,0,0.45);   /* inner border for depth */
+  --retro-stripe: rgba(255,255,255,0.03); /* subtle stripe overlay */
+  --corner-bg: transparent;
+}
+
+*::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+  height: var(--scrollbar-width);
+}
+
+/* track (the rail) */
+*::-webkit-scrollbar-track {
+  background:
+    radial-gradient(1200px 300px at 10% 10%, rgba(255,255,255,0.02), transparent 5%),
+    linear-gradient(180deg, rgba(4,6,12,0.85), rgba(6,8,20,0.65));
+  border-radius: 999px;
+  box-shadow: inset 0 0 18px rgba(0,0,0,0.6);
+  margin: 4px; /* gives the track a little breathing room */
+}
+
+/* thumb (the draggable part) */
+*::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  border: 2px solid var(--thumb-border); /* retro inset feel */
+  background-image:
+    linear-gradient(120deg, var(--thumb-accent-1), var(--thumb-accent-2)),
+    repeating-linear-gradient(0deg, transparent 0 4px, var(--retro-stripe) 4px 5px);
+  background-blend-mode: screen;
+  background-size: 200% 200%, auto;
+  box-shadow:
+    0 0 10px color-mix(in srgb, var(--thumb-glow) 35%, transparent),
+    inset 0 -6px 14px rgba(0,0,0,0.35); /* depth */
+  cursor: pointer;
+  transition: box-shadow 180ms ease, transform 120ms ease;
+  min-height: 28px;
+}
+
+@keyframes cosmic-scroll {
+  from { background-position: 0% 50%, 0 0; }
+  to   { background-position: 100% 50%, 0 0; }
+}
+*::-webkit-scrollbar-thumb {
+  animation: cosmic-scroll 6s linear infinite;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  box-shadow:
+    0 0 22px color-mix(in srgb, var(--thumb-glow) 55%, transparent),
+    inset 0 -6px 16px rgba(0,0,0,0.45);
+}
+*::-webkit-scrollbar-thumb:active {
+  transform: scale(0.98);
+  box-shadow:
+    0 0 28px color-mix(in srgb, var(--thumb-glow) 72%, transparent),
+    inset 0 -8px 18px rgba(0,0,0,0.5);
+}
+
+*::-webkit-scrollbar-corner {
+  background: var(--corner-bg);
+}
+
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumb-accent-1) var(--track-bg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *::-webkit-scrollbar-thumb {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (pointer: coarse) {
+  :root { --scrollbar-width: 16px; }
+}
+
+.scrollable {
+  scrollbar-gutter: stable both-edges;
+  -webkit-overflow-scrolling: touch;
+}

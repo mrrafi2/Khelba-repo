@@ -1,0 +1,105 @@
+
+/* Page shell */
+.pageWrap{
+  min-height:100vh;
+  padding:22px;
+  box-sizing:border-box;
+  background: linear-gradient(180deg, #071021, #04101a);
+  color: #ffffff;
+  font-family: Inter, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+
+.maxBox{ max-width: 1100px; margin: 0 auto; }
+
+/* Header */
+.header{ display:flex; align-items:center; justify-content:space-between; gap:18px; margin-bottom:18px; }
+.title{ font-size:26px; font-weight:800; letter-spacing:0.02em; margin:0; color:#f7f3e9 }
+.subtitle{ color:#9aa6b2; margin-top:6px; font-size:13px }
+
+/* Tabs */
+.tabs{ display:flex; gap:8px; background: rgba(0,0,0,0.12); padding:6px; border-radius:12px; }
+.tab{ font-weight:700; padding:8px 14px; border-radius:10px; background:transparent; color:#e6eef6; border:none; cursor:pointer; transition:transform .18s ease, box-shadow .18s ease; }
+.tab:hover{ transform:translateY(-2px); }
+.tab.active{ background: linear-gradient(90deg, #ffd23f, #ffb76b); color:#071021; box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
+
+/* Inline notices */
+.loading{ padding:18px; color:#9aa6b2; }
+.error{ padding:12px; background:rgba(255,20,20,0.06); color:#ffcdc9; border-radius:10px; }
+
+/* Main area */
+.main{ margin-top:8px; }
+.section{ margin-bottom:18px; }
+
+/* Top podium grid */
+.topGrid{ display:grid; grid-template-columns: repeat(1,1fr); gap:12px; }
+@media(min-width:840px){ .topGrid{ grid-template-columns: repeat(3, 1fr); } }
+
+.podium{
+  border-radius:14px;
+  padding:14px;
+  position:relative;
+  overflow:visible;
+  transform-origin:center bottom;
+  transition:transform .32s cubic-bezier(.2,.9,.25,1), box-shadow .32s ease;
+  display:flex; align-items:center; gap:12px;
+}
+.podium:hover{ transform:translateY(-6px) scale(1.01); }
+
+/* special podium skins */
+.podium1{ background: linear-gradient(135deg,#fff3bf,#ffd23f); color:#0b1015; box-shadow: 0 22px 60px rgba(0,0,0,0.5); border:1px solid rgba(0,0,0,0.06); }
+.podium2{ background: linear-gradient(135deg,#e3e9ef,#c7d2e0); color:#071021; box-shadow: 0 12px 36px rgba(0,0,0,0.38); }
+.podium3{ background: linear-gradient(135deg,#f7e8ff,#e2d4ff); color:#071021; box-shadow: 0 10px 30px rgba(0,0,0,0.32); }
+
+.podium .badge{ width:56px; height:56px; border-radius:10px; display:grid; place-items:center; font-weight:900; font-size:22px; box-shadow: 0 8px 20px rgba(0,0,0,0.18); background: rgba(0,0,0,0.06); }
+.pName{ font-weight:800; font-size:18px; color:#071021 }
+.pStat{ font-size:13px; color: rgba(5,8,10,0.6); margin-top:4px; }
+.rankScore{ margin-left:auto; text-align:right; font-size:22px; font-weight:900; }
+.pWhen{ font-size:12px; color: rgba(0,0,0,0.55); }
+
+/* progress bar inside podium */
+.podium .bar{ margin-top:10px; height:8px; border-radius:8px; background: rgba(0,0,0,0.08); overflow:hidden; }
+.podium .bar > i{ display:block; height:100%; background: linear-gradient(90deg, rgba(255,255,255,0.12), rgba(0,0,0,0.08)); }
+
+/* list card */
+.listCard{ margin-top:12px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.04); padding:6px; border-radius:12px; }
+.listHead{ display:grid; grid-template-columns: 40px 1fr 120px 120px 120px; gap:8px; padding:10px 12px; color:#9aa6b2; font-weight:700; font-size:13px; align-items:center; border-bottom:1px dashed rgba(255,255,255,0.03); }
+.listBody{ max-height:480px; overflow:auto; }
+.row{ display:grid; grid-template-columns: 40px 1fr 120px 120px 120px; gap:8px; align-items:center; padding:10px 12px; border-bottom:1px solid rgba(255,255,255,0.02); transition: background .2s ease; }
+.row:hover{ background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); }
+.player{ font-weight:700; color:#fff }
+.right{ text-align:right; }
+.rightSmall{ text-align:right; font-size:12px; color:#9aa6b2; }
+.empty{ padding:18px; color:#9aa6b2; text-align:center; }
+
+/* small screens layout for lists */
+@media(max-width:760px){
+  .listHead, .row{ grid-template-columns: 36px 1fr 88px 88px 88px; font-size:13px; }
+  .topGrid{ grid-template-columns: 1fr; }
+}
+
+/* Footer & back link */
+.footer{ margin-top:18px; color:#9aa6b2; font-size:12px; }
+.backButton{ position:fixed; right:18px; bottom:18px; background:rgba(0,0,0,0.25); padding:8px 12px; border-radius:10px; color:#fff; text-decoration:none; }
+
+/* micro Animations */
+@keyframes floatUp { from { transform: translateY(0);} to { transform: translateY(-6px);} }
+.podium1{ animation: floatUp 3.4s ease-in-out infinite alternate; }
+.podium2{ animation: floatUp 3.8s ease-in-out infinite alternate; }
+.podium3{ animation: floatUp 4.2s ease-in-out infinite alternate; }
+
+/* subtle shine on top ranked */
+@keyframes shine { 0% { transform: translateX(-110%)} 100% { transform: translateX(110%)} }
+.podium1::after{ content:''; position:absolute; left:-20%; top:0; width:140%; height:100%; pointer-events:none; background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.08) 45%, rgba(255,255,255,0.0) 60%); transform: translateX(-120%); animation: shine 3.4s linear infinite; opacity:0.9; mix-blend-mode:overlay; border-radius:14px; }
+
+/* accessibility focus */
+.tab:focus, .row:focus, .podium:focus{ outline: 3px solid rgba(255,210,63,0.12); outline-offset:4px; }
+
+/* small utility */
+.kv{ font-size:12px; color:#9aa6b2; }
+
+/* make scrollbars subtle and small */
+.listBody::-webkit-scrollbar{ width:8px; height:8px }
+.listBody::-webkit-scrollbar-track{ background:transparent }
+.listBody::-webkit-scrollbar-thumb{ background: rgba(255,255,255,0.04); border-radius:8px }
+
+/* end */
