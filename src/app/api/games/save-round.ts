@@ -1,6 +1,5 @@
-// pages/api/games/save-round.ts
 import type { NextApiRequest, NextApiResponse } from "next";
-import admin from "../../../firebaseAdmin"; 
+import admin from "../../../lib/server/firebaseAdmin"; 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") return res.status(405).end();

@@ -1,5 +1,4 @@
-// src/app/api/games/save-score/route.ts
-import admin from "../../../../firebaseAdmin"; 
+import admin from "../../../../lib/server/firebaseAdmin"; 
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
