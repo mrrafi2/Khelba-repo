@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useRef, useState, type JSX } from "react";
 import type { Shield, Danger } from "./types";
 import { loadImage, dist, pointToSegmentDistance, buildSmoothPath2D, clamp, collideDangers } from "./utils";
