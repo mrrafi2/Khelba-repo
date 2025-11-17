@@ -23,6 +23,7 @@ export interface AuthContextType {
   updateDisplayName: (newDisplayName: string) => Promise<void>;
    addCoins?: (n?: number) => void;
    addScore?: (amount?: number, flushNow?: boolean) => void;
+   saveSketchRound: (data: { score: number; hits: number }) => Promise<void>;
 
 }
 
